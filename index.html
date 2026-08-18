@@ -37,13 +37,13 @@
                 sans-serif;
         }
 
-        /* =========================
+        /* ==========================================
            NAVBAR
-        ========================= */
+        ========================================== */
 
         .navbar {
-            height: 64px;
             width: 100%;
+            height: 64px;
 
             display: flex;
             align-items: center;
@@ -51,6 +51,7 @@
             padding: 0 24px;
 
             background: #171717;
+
             border-bottom: 1px solid #333;
         }
 
@@ -63,9 +64,9 @@
             letter-spacing: -0.3px;
         }
 
-        /* =========================
+        /* ==========================================
            MAIN
-        ========================= */
+        ========================================== */
 
         main {
             flex: 1;
@@ -83,7 +84,8 @@
 
             text-align: center;
 
-            animation: pageIn 0.45s ease both;
+            animation:
+                pageIn 0.45s ease both;
         }
 
         .hidden {
@@ -93,18 +95,22 @@
         @keyframes pageIn {
             from {
                 opacity: 0;
-                transform: translateY(12px);
+
+                transform:
+                    translateY(14px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
-        /* =========================
+        /* ==========================================
            ICON
-        ========================= */
+        ========================================== */
 
         .icon {
             width: 66px;
@@ -129,20 +135,23 @@
                 0 8px 25px rgba(16, 163, 127, 0.18);
 
             transition:
-                transform 0.35s cubic-bezier(.175, .885, .32, 1.275),
-                box-shadow 0.35s ease;
+                transform 0.4s cubic-bezier(.175, .885, .32, 1.275),
+                box-shadow 0.3s ease;
         }
 
         .icon:hover {
-            transform: scale(1.08) rotate(-3deg);
+            transform:
+                translateY(-4px)
+                scale(1.08)
+                rotate(-3deg);
 
             box-shadow:
-                0 12px 35px rgba(16, 163, 127, 0.28);
+                0 14px 35px rgba(16, 163, 127, 0.28);
         }
 
-        /* =========================
+        /* ==========================================
            HEADINGS
-        ========================= */
+        ========================================== */
 
         h1 {
             margin: 0 0 38px;
@@ -167,22 +176,22 @@
             font-size: 15px;
         }
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        /* ==========================================
+           GENERAL BUTTON
+        ========================================== */
 
         button {
             position: relative;
+
+            min-height: 64px;
+
+            padding: 20px 24px;
 
             border: 1px solid #414141;
             border-radius: 14px;
 
             background: #2f2f2f;
             color: #ececec;
-
-            padding: 20px 24px;
-
-            min-height: 64px;
 
             font-family: inherit;
 
@@ -191,11 +200,15 @@
 
             cursor: pointer;
 
+            /*
+             * Smooth + bouncy hover animation
+             */
             transition:
-                transform 0.32s cubic-bezier(.175, .885, .32, 1.275),
-                background-color 0.22s ease,
-                border-color 0.22s ease,
-                box-shadow 0.32s ease;
+                transform 0.35s cubic-bezier(.175, .885, .32, 1.275),
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.35s ease,
+                color 0.2s ease;
         }
 
         button:hover {
@@ -208,20 +221,20 @@
             border-color: #555;
 
             box-shadow:
-                0 10px 25px rgba(0, 0, 0, 0.22);
+                0 12px 28px rgba(0, 0, 0, 0.24);
         }
 
         button:active {
             transform:
                 translateY(-1px)
-                scale(0.98);
+                scale(0.975);
 
             transition-duration: 0.1s;
         }
 
-        /* =========================
+        /* ==========================================
            HOME BUTTONS
-        ========================= */
+        ========================================== */
 
         .button-container {
             width: 100%;
@@ -231,36 +244,39 @@
 
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
             gap: 16px;
         }
 
-        /* =========================
+        /* ==========================================
            PRIMARY BUTTON
-        ========================= */
+        ========================================== */
 
         .primary {
             background: #10a37f;
+
             border-color: #10a37f;
 
-            color: white;
+            color: #ffffff;
 
             box-shadow:
                 0 5px 18px rgba(16, 163, 127, 0.14);
         }
 
         .primary:hover {
-            background: #11b58c;
-            border-color: #11b58c;
+            background: #12b98f;
+
+            border-color: #12b98f;
 
             box-shadow:
-                0 12px 30px rgba(16, 163, 127, 0.24);
+                0 13px 32px rgba(16, 163, 127, 0.28);
         }
 
-        /* =========================
-           NOTHING BUTTON
-        ========================= */
+        /* ==========================================
+           NON-WORKING BUTTON
+        ========================================== */
 
         .disabled {
             opacity: 0.65;
@@ -272,9 +288,9 @@
             background: #383838;
         }
 
-        /* =========================
+        /* ==========================================
            DOWNLOAD BUTTONS
-        ========================= */
+        ========================================== */
 
         .download-buttons {
             width: 100%;
@@ -284,13 +300,15 @@
 
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
             gap: 16px;
         }
 
         .download-button {
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -303,18 +321,18 @@
             font-size: 18px;
 
             transition:
-                transform 0.32s cubic-bezier(.175, .885, .32, 1.275);
+                transform 0.35s cubic-bezier(.175, .885, .32, 1.275);
         }
 
         .download-button:hover .download-icon {
             transform:
                 translateY(3px)
-                scale(1.15);
+                scale(1.18);
         }
 
-        /* =========================
-           NOTICE
-        ========================= */
+        /* ==========================================
+           PLAYER NOTICE
+        ========================================== */
 
         .notice {
             margin: 28px 0 0;
@@ -326,9 +344,9 @@
             line-height: 1.5;
         }
 
-        /* =========================
+        /* ==========================================
            EXTRA SECTION
-        ========================= */
+        ========================================== */
 
         .extra-section {
             width: 100%;
@@ -348,14 +366,14 @@
         }
 
         .extra-button:hover {
-            color: #ffffff;
-
             background: #303030;
+
+            color: #ffffff;
         }
 
-        /* =========================
+        /* ==========================================
            EXTRA DOWNLOADS
-        ========================= */
+        ========================================== */
 
         .extra-downloads {
             width: 100%;
@@ -364,12 +382,13 @@
 
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
             gap: 14px;
 
             animation:
-                extraIn 0.35s cubic-bezier(.175, .885, .32, 1.275)
+                extraIn 0.4s cubic-bezier(.175, .885, .32, 1.275)
                 both;
         }
 
@@ -390,7 +409,7 @@
                 opacity: 0;
 
                 transform:
-                    translateY(-10px)
+                    translateY(-12px)
                     scale(0.96);
             }
 
@@ -403,14 +422,14 @@
             }
         }
 
-        /* =========================
+        /* ==========================================
            BACK BUTTON
-        ========================= */
+        ========================================== */
 
         .back-button {
-            margin-top: 26px;
-
             min-height: auto;
+
+            margin-top: 26px;
 
             padding: 10px 16px;
 
@@ -424,9 +443,9 @@
         }
 
         .back-button:hover {
-            color: #ffffff;
-
             background: #2a2a2a;
+
+            color: #ffffff;
 
             box-shadow: none;
 
@@ -435,9 +454,9 @@
                 scale(1.02);
         }
 
-        /* =========================
+        /* ==========================================
            FOOTER
-        ========================= */
+        ========================================== */
 
         footer {
             width: 100%;
@@ -451,9 +470,9 @@
             font-size: 12px;
         }
 
-        /* =========================
+        /* ==========================================
            MOBILE
-        ========================= */
+        ========================================== */
 
         @media (max-width: 600px) {
 
@@ -469,9 +488,15 @@
                 font-size: 29px;
             }
 
+            /*
+             * Buttons stay side-by-side.
+             */
+
             .button-container,
             .download-buttons {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
                 gap: 10px;
             }
 
@@ -480,9 +505,9 @@
             }
 
             button {
-                padding: 16px 10px;
-
                 min-height: 60px;
+
+                padding: 16px 10px;
 
                 font-size: 14px;
             }
@@ -500,22 +525,28 @@
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+    <!-- ==========================================
+         NAVBAR
+    ========================================== -->
 
     <nav class="navbar">
+
         <div class="logo">
             Joel Interweb
         </div>
+
     </nav>
 
 
+    <!-- ==========================================
+         MAIN
+    ========================================== -->
+
     <main>
 
-        <!-- =========================
+        <!-- ======================================
              HOME PAGE
-        ========================= -->
+        ======================================= -->
 
         <section
             id="homePage"
@@ -531,6 +562,8 @@
 
             <div class="button-container">
 
+                <!-- CEDARSMP -->
+
                 <button
                     class="primary"
                     onclick="showDownloads()">
@@ -539,6 +572,8 @@
 
                 </button>
 
+
+                <!-- DOES NOTHING -->
 
                 <button
                     class="disabled"
@@ -553,9 +588,9 @@
         </section>
 
 
-        <!-- =========================
+        <!-- ======================================
              DOWNLOAD PAGE
-        ========================= -->
+        ======================================= -->
 
         <section
             id="downloadsPage"
@@ -574,16 +609,18 @@
             </p>
 
 
-            <!-- =========================
+            <!-- ==================================
                  JOEL CLIENTS
-            ========================= -->
+            =================================== -->
 
             <div class="download-buttons">
+
+                <!-- JOEL CLIENT 1.12 -->
 
                 <button
                     class="primary download-button"
                     onclick="downloadFile(
-                        'https://www.dropbox.com/scl/fi/o6uqguo2hoqdxrk0pt7ib/joelclient1.12.html?rlkey=q3vj93tlms7z64i6538dheb2r&st=qns0gvel&dl=1'
+                        '1oVxnrU1kjAQaq8YhOVh9tIm4408OKpj9'
                     )">
 
                     <span class="download-icon">
@@ -595,10 +632,12 @@
                 </button>
 
 
+                <!-- JOEL CLIENT 1.14 -->
+
                 <button
                     class="download-button"
                     onclick="downloadFile(
-                        'https://www.dropbox.com/scl/fi/bew89mqwx46abjhadpi2g/joelclient1.14.html?rlkey=8uooxi0h1asojgtl563tserlq&st=ciwhg61n&dl=1'
+                        '1kcpCqWzjfHwS_xiwIhh9pEZAQmF4kgWK'
                     )">
 
                     <span class="download-icon">
@@ -612,14 +651,16 @@
             </div>
 
 
+            <!-- PLAYER RECOMMENDATION -->
+
             <p class="notice">
                 If you are a regular player, download 1.12
             </p>
 
 
-            <!-- =========================
+            <!-- ==================================
                  EXTRA DOWNLOADS
-            ========================= -->
+            =================================== -->
 
             <div class="extra-section">
 
@@ -637,11 +678,12 @@
                     id="extraDownloads"
                     class="extra-downloads hidden">
 
+
                     <!-- EAGLERCRAFT 1.21.11 -->
 
                     <button
                         onclick="downloadFile(
-                            'https://www.dropbox.com/scl/fi/morx0uwtfdgqhnizmt88i/Eaglercraft_1.21.11_WASM_Offline_Download-2.html?rlkey=s89phk0q1aw92z6jy9wws7z2q&st=w6o69xv7&dl=1'
+                            '1cay619Jz02QWoaBcE3AJoKuiG6zYf7dX'
                         )">
 
                         <span class="download-icon">
@@ -657,7 +699,7 @@
 
                     <button
                         onclick="downloadFile(
-                            'https://www.dropbox.com/scl/fi/1jq2384k353wvbgnekoyq/Eaglercraft-1.16.5-WASM.html?rlkey=e1mc4iltbxu61zkmj71flq3aa&st=emeawrga&dl=1'
+                            '1QkI4EHS5_2oIwM80bFrj_eLjsb8oOZvZ'
                         )">
 
                         <span class="download-icon">
@@ -673,7 +715,7 @@
 
                     <button
                         onclick="downloadFile(
-                            'https://www.dropbox.com/scl/fi/6bsoe4c06bzfa5269r50r/eaglercraft-1.17-wasm_gc.html?rlkey=mi0tyf0l3a5eymnv81jjlfdcq&st=73o30bmk&dl=1'
+                            '11mX0gXTpOiCIiSWbkA2Db0I8EOr_tJXE'
                         )">
 
                         <span class="download-icon">
@@ -689,9 +731,9 @@
             </div>
 
 
-            <!-- =========================
+            <!-- ==================================
                  BACK BUTTON
-            ========================= -->
+            =================================== -->
 
             <button
                 class="back-button"
@@ -706,6 +748,10 @@
     </main>
 
 
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+
     <footer>
         Joel Interweb
     </footer>
@@ -713,24 +759,22 @@
 
     <script>
 
-        /*
-         * =====================================================
-         * PAGE NAVIGATION
-         * =====================================================
-         */
+        /* ==========================================
+           PAGE NAVIGATION
+        ========================================== */
 
         function showDownloads() {
 
-            const home =
+            const homePage =
                 document.getElementById("homePage");
 
-            const downloads =
+            const downloadsPage =
                 document.getElementById("downloadsPage");
 
 
-            home.classList.add("hidden");
+            homePage.classList.add("hidden");
 
-            downloads.classList.remove("hidden");
+            downloadsPage.classList.remove("hidden");
 
 
             window.scrollTo({
@@ -742,16 +786,16 @@
 
         function showHome() {
 
-            const home =
+            const homePage =
                 document.getElementById("homePage");
 
-            const downloads =
+            const downloadsPage =
                 document.getElementById("downloadsPage");
 
 
-            downloads.classList.add("hidden");
+            downloadsPage.classList.add("hidden");
 
-            home.classList.remove("hidden");
+            homePage.classList.remove("hidden");
 
 
             window.scrollTo({
@@ -761,22 +805,20 @@
         }
 
 
-        /*
-         * =====================================================
-         * NOTHING BUTTON
-         * =====================================================
-         */
+        /* ==========================================
+           NOTHING BUTTON
+        ========================================== */
 
         function doNothing() {
-            // Intentionally does nothing.
+
+            // Intentionally empty.
+
         }
 
 
-        /*
-         * =====================================================
-         * EXTRA DOWNLOADS
-         * =====================================================
-         */
+        /* ==========================================
+           EXTRA DOWNLOADS
+        ========================================== */
 
         function toggleExtras() {
 
@@ -787,11 +829,11 @@
                 document.getElementById("extraButton");
 
 
-            const isHidden =
+            const currentlyHidden =
                 extraDownloads.classList.contains("hidden");
 
 
-            if (isHidden) {
+            if (currentlyHidden) {
 
                 extraDownloads.classList.remove("hidden");
 
@@ -809,34 +851,46 @@
         }
 
 
-        /*
-         * =====================================================
-         * DOWNLOAD
-         * =====================================================
-         *
-         * Dropbox handles the actual file hosting.
-         *
-         * The links use dl=1 so Dropbox attempts to download
-         * the file instead of showing its preview page.
-         */
+        /* ==========================================
+           GOOGLE DRIVE DOWNLOAD
+        ==========================================
+           
+           Google Drive file IDs are passed into this
+           function.
 
-        function downloadFile(url) {
+           The "uc?export=download" endpoint asks
+           Google Drive to download the file.
+        ========================================== */
+
+        function downloadFile(fileId) {
+
+            const downloadUrl =
+                "https://drive.google.com/uc?export=download&id="
+                + encodeURIComponent(fileId);
+
 
             const link =
                 document.createElement("a");
 
 
-            link.href = url;
+            link.href =
+                downloadUrl;
 
-            link.target = "_blank";
+            link.target =
+                "_blank";
 
-            link.rel = "noopener noreferrer";
+            link.rel =
+                "noopener noreferrer";
+
 
             document.body.appendChild(link);
 
+
             link.click();
 
+
             link.remove();
+
         }
 
     </script>

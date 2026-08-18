@@ -15,256 +15,550 @@
         body {
             margin: 0;
             padding: 0;
-            width: 100%;
             min-height: 100%;
         }
 
         body {
-            background: #212121;
-            color: #ececec;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+
+            background: #212121;
+            color: #ececec;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
         }
 
-        /* Top navigation */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         .navbar {
             height: 64px;
             width: 100%;
+
             display: flex;
             align-items: center;
+
             padding: 0 24px;
-            border-bottom: 1px solid #333;
+
             background: #171717;
+            border-bottom: 1px solid #333;
         }
 
         .logo {
+            color: #ffffff;
+
             font-size: 19px;
             font-weight: 600;
-            color: #ffffff;
-            letter-spacing: -0.2px;
+
+            letter-spacing: -0.3px;
         }
 
-        /* Main content */
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
             flex: 1;
+
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            justify-content: center;
+
+            padding: 50px 20px;
         }
 
         .page {
             width: 100%;
             max-width: 760px;
+
             text-align: center;
+
+            animation: pageIn 0.45s ease both;
         }
 
-        .page.hidden {
-            display: none;
+        .hidden {
+            display: none !important;
         }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           ICON
+        ========================= */
 
         .icon {
-            width: 64px;
-            height: 64px;
+            width: 66px;
+            height: 66px;
+
             margin: 0 auto 28px;
-            border-radius: 50%;
-            background: #10a37f;
+
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #10a37f;
+
             color: white;
+
             font-size: 30px;
             font-weight: 600;
+
+            box-shadow:
+                0 8px 25px rgba(16, 163, 127, 0.18);
+
+            transition:
+                transform 0.35s cubic-bezier(.175, .885, .32, 1.275),
+                box-shadow 0.35s ease;
         }
+
+        .icon:hover {
+            transform: scale(1.08) rotate(-3deg);
+
+            box-shadow:
+                0 12px 35px rgba(16, 163, 127, 0.28);
+        }
+
+        /* =========================
+           HEADINGS
+        ========================= */
 
         h1 {
-            font-size: 36px;
-            line-height: 1.2;
-            font-weight: 600;
             margin: 0 0 38px;
-            letter-spacing: -0.8px;
+
+            color: #f5f5f5;
+
+            font-size: 36px;
+            font-weight: 600;
+
+            letter-spacing: -0.9px;
         }
-
-        /* Buttons */
-
-        .button-container {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        button {
-            border: 1px solid #444;
-            background: #2f2f2f;
-            color: #ececec;
-            border-radius: 12px;
-            padding: 20px 24px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition:
-                background 0.15s ease,
-                border-color 0.15s ease,
-                transform 0.15s ease;
-        }
-
-        button:hover {
-            background: #3a3a3a;
-            border-color: #555;
-            transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        .primary {
-            background: #10a37f;
-            border-color: #10a37f;
-            color: white;
-        }
-
-        .primary:hover {
-            background: #0d8f70;
-            border-color: #0d8f70;
-        }
-
-        .disabled {
-            opacity: 0.65;
-            cursor: default;
-        }
-
-        .disabled:hover {
-            background: #2f2f2f;
-            border-color: #444;
-            transform: none;
-        }
-
-        /* Downloads */
 
         .downloads-page h1 {
             margin-bottom: 12px;
         }
 
         .subtitle {
-            color: #a0a0a0;
+            margin: 0 0 34px;
+
+            color: #9b9b9b;
+
             font-size: 15px;
-            margin-bottom: 36px;
         }
 
-        .download-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 500px;
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        button {
+            position: relative;
+
+            border: 1px solid #414141;
+            border-radius: 14px;
+
+            background: #2f2f2f;
+            color: #ececec;
+
+            padding: 20px 24px;
+
+            min-height: 64px;
+
+            font-family: inherit;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.32s cubic-bezier(.175, .885, .32, 1.275),
+                background-color 0.22s ease,
+                border-color 0.22s ease,
+                box-shadow 0.32s ease;
+        }
+
+        button:hover {
+            transform:
+                translateY(-5px)
+                scale(1.025);
+
+            background: #383838;
+
+            border-color: #555;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.22);
+        }
+
+        button:active {
+            transform:
+                translateY(-1px)
+                scale(0.98);
+
+            transition-duration: 0.1s;
+        }
+
+        /* =========================
+           HOME BUTTONS
+        ========================= */
+
+        .button-container {
+            width: 100%;
+            max-width: 620px;
+
             margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        /* =========================
+           PRIMARY BUTTON
+        ========================= */
+
+        .primary {
+            background: #10a37f;
+            border-color: #10a37f;
+
+            color: white;
+
+            box-shadow:
+                0 5px 18px rgba(16, 163, 127, 0.14);
+        }
+
+        .primary:hover {
+            background: #11b58c;
+            border-color: #11b58c;
+
+            box-shadow:
+                0 12px 30px rgba(16, 163, 127, 0.24);
+        }
+
+        /* =========================
+           NOTHING BUTTON
+        ========================= */
+
+        .disabled {
+            opacity: 0.65;
+        }
+
+        .disabled:hover {
+            opacity: 0.65;
+
+            background: #383838;
+        }
+
+        /* =========================
+           DOWNLOAD BUTTONS
+        ========================= */
+
+        .download-buttons {
+            width: 100%;
+            max-width: 620px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
         }
 
         .download-button {
             display: flex;
             align-items: center;
             justify-content: center;
+
             gap: 10px;
-            min-height: 60px;
         }
 
         .download-icon {
+            display: inline-block;
+
             font-size: 18px;
+
+            transition:
+                transform 0.32s cubic-bezier(.175, .885, .32, 1.275);
         }
 
+        .download-button:hover .download-icon {
+            transform:
+                translateY(3px)
+                scale(1.15);
+        }
+
+        /* =========================
+           NOTICE
+        ========================= */
+
         .notice {
-            color: #9b9b9b;
+            margin: 28px 0 0;
+
+            color: #999;
+
             font-size: 14px;
-            margin-top: 28px;
+
             line-height: 1.5;
         }
 
-        .back-button {
-            margin-top: 30px;
+        /* =========================
+           EXTRA SECTION
+        ========================= */
+
+        .extra-section {
+            width: 100%;
+            max-width: 620px;
+
+            margin: 30px auto 0;
+        }
+
+        .extra-button {
+            width: 100%;
+
             background: transparent;
-            border: none;
-            color: #a0a0a0;
+
+            border: 1px solid #444;
+
+            color: #bcbcbc;
+        }
+
+        .extra-button:hover {
+            color: #ffffff;
+
+            background: #303030;
+        }
+
+        /* =========================
+           EXTRA DOWNLOADS
+        ========================= */
+
+        .extra-downloads {
+            width: 100%;
+
+            margin-top: 16px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+
+            animation:
+                extraIn 0.35s cubic-bezier(.175, .885, .32, 1.275)
+                both;
+        }
+
+        .extra-downloads.hidden {
+            display: none;
+        }
+
+        .extra-downloads button {
+            min-height: 58px;
+
+            padding: 16px 12px;
+
+            font-size: 14px;
+        }
+
+        @keyframes extraIn {
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-10px)
+                    scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+            margin-top: 26px;
+
+            min-height: auto;
+
             padding: 10px 16px;
+
+            background: transparent;
+
+            border: none;
+
+            color: #999;
+
+            box-shadow: none;
         }
 
         .back-button:hover {
             color: #ffffff;
+
             background: #2a2a2a;
+
+            box-shadow: none;
+
+            transform:
+                translateY(-2px)
+                scale(1.02);
         }
 
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             width: 100%;
-            text-align: center;
-            color: #777;
-            font-size: 12px;
+
             padding: 20px;
+
+            text-align: center;
+
+            color: #6f6f6f;
+
+            font-size: 12px;
         }
 
-        /* Mobile */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
+
             .navbar {
                 padding: 0 18px;
+            }
+
+            main {
+                padding: 35px 18px;
             }
 
             h1 {
                 font-size: 29px;
             }
 
-            .button-container {
-                grid-template-columns: 1fr;
-                max-width: 420px;
+            /*
+             * Buttons remain side-by-side.
+             */
+
+            .button-container,
+            .download-buttons {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
             }
 
-            main {
-                padding: 30px 18px;
+            .extra-downloads {
+                grid-template-columns: 1fr;
+            }
+
+            button {
+                padding: 16px 10px;
+
+                min-height: 60px;
+
+                font-size: 14px;
             }
 
             .icon {
                 width: 56px;
                 height: 56px;
+
                 font-size: 26px;
             }
         }
     </style>
 </head>
 
+
 <body>
 
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav class="navbar">
-        <div class="logo">Joel Interweb</div>
+        <div class="logo">
+            Joel Interweb
+        </div>
     </nav>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
 
     <main>
 
-        <!-- HOME PAGE -->
-        <section id="homePage" class="page">
+        <!-- =========================
+             HOME PAGE
+        ========================= -->
 
-            <div class="icon">J</div>
+        <section
+            id="homePage"
+            class="page">
 
-            <h1>What are you here for?</h1>
+            <div class="icon">
+                J
+            </div>
+
+            <h1>
+                What are you here for?
+            </h1>
 
             <div class="button-container">
+
+                <!-- WORKING BUTTON -->
 
                 <button
                     class="primary"
                     onclick="showDownloads()">
-                    CedarsMP
+
+                    cedarSMP
+
                 </button>
+
+
+                <!-- DOES NOTHING -->
 
                 <button
                     class="disabled"
                     onclick="doNothing()">
+
                     For example, nothing
+
                 </button>
 
             </div>
@@ -272,48 +566,158 @@
         </section>
 
 
-        <!-- DOWNLOAD PAGE -->
-        <section id="downloadsPage" class="page downloads-page hidden">
+        <!-- =========================
+             DOWNLOAD PAGE
+        ========================= -->
 
-            <div class="icon">↓</div>
+        <section
+            id="downloadsPage"
+            class="page downloads-page hidden">
 
-            <h1>Downloads</h1>
+            <div class="icon">
+                ↓
+            </div>
+
+            <h1>
+                Downloads
+            </h1>
 
             <p class="subtitle">
-                Choose the version of Joel Client you want to download.
+                Choose what you want to download.
             </p>
+
+
+            <!-- =========================
+                 JOEL CLIENTS
+            ========================= -->
 
             <div class="download-buttons">
 
                 <button
                     class="primary download-button"
-                    onclick="downloadFolder('joelclient1.12', 'joel-client-1.12')">
-                    <span class="download-icon">↓</span>
+                    onclick="downloadFile('joelclient1.12.html')">
+
+                    <span class="download-icon">
+                        ↓
+                    </span>
+
                     Joel Client 1.12
+
                 </button>
+
 
                 <button
                     class="download-button"
-                    onclick="downloadFolder('joelclient.1.14', 'joel-client-1.14')">
-                    <span class="download-icon">↓</span>
+                    onclick="downloadFile('joelclient1.14.html')">
+
+                    <span class="download-icon">
+                        ↓
+                    </span>
+
                     Joel Client 1.14
+
                 </button>
 
             </div>
+
 
             <p class="notice">
                 If you are a regular player, download 1.12
             </p>
 
+
+            <!-- =========================
+                 EXTRA DOWNLOADS
+            ========================= -->
+
+            <div class="extra-section">
+
+                <button
+                    id="extraButton"
+                    class="extra-button"
+                    onclick="toggleExtras()">
+
+                    Want extra?
+
+                </button>
+
+
+                <div
+                    id="extraDownloads"
+                    class="extra-downloads hidden">
+
+                    <!-- EAGLERCRAFT 1.21.11 -->
+
+                    <button
+                        onclick="downloadFile(
+                            'Eaglercraft_1.21.11_WASM_Offline_Download(2).html'
+                        )">
+
+                        <span class="download-icon">
+                            ↓
+                        </span>
+
+                        Eaglercraft 1.21.11
+
+                    </button>
+
+
+                    <!-- EAGLERCRAFT 1.16.5 -->
+
+                    <button
+                        onclick="downloadFile(
+                            'Eaglercraft 1.16.5 WASM.html'
+                        )">
+
+                        <span class="download-icon">
+                            ↓
+                        </span>
+
+                        Eaglercraft 1.16.5
+
+                    </button>
+
+
+                    <!-- EAGLERCRAFT 1.17 -->
+
+                    <button
+                        onclick="downloadFile(
+                            'eaglercraft-1.17-wasm_gc.html'
+                        )">
+
+                        <span class="download-icon">
+                            ↓
+                        </span>
+
+                        Eaglercraft 1.17
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 BACK
+            ========================= -->
+
             <button
                 class="back-button"
                 onclick="showHome()">
+
                 ← Back
+
             </button>
 
         </section>
 
     </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
         Joel Interweb
@@ -321,178 +725,178 @@
 
 
     <script>
-        const GITHUB_API =
-            "https://api.github.com/repos/sahurhub/joel/contents/Resources";
 
         /*
-         * Switch to the downloads page.
-         */
-        function showDownloads() {
-            document.getElementById("homePage").classList.add("hidden");
-            document.getElementById("downloadsPage").classList.remove("hidden");
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-
-        /*
-         * Return to the home page.
-         */
-        function showHome() {
-            document.getElementById("downloadsPage").classList.add("hidden");
-            document.getElementById("homePage").classList.remove("hidden");
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-
-        /*
-         * The second button intentionally does nothing.
-         */
-        function doNothing() {
-            // Nothing happens.
-        }
-
-
-        /*
-         * Gets every file in the requested GitHub folder and
-         * downloads them as a ZIP file.
+         * =====================================================
+         * GITHUB SETTINGS
+         * =====================================================
          *
-         * This means you don't need to know the individual
-         * filenames inside the client folders.
+         * All downloadable files are directly inside:
+         *
+         * Resources/
+         *
+         * in the sahurhub/joel repository.
          */
-        async function downloadFolder(folderName, zipName) {
 
-            const buttons = document.querySelectorAll(".download-button");
+        const GITHUB_RAW_BASE =
+            "https://raw.githubusercontent.com/sahurhub/joel/main/Resources/";
 
-            buttons.forEach(button => {
-                button.disabled = true;
+
+        /*
+         * =====================================================
+         * HOME -> DOWNLOADS
+         * =====================================================
+         */
+
+        function showDownloads() {
+
+            const home =
+                document.getElementById("homePage");
+
+            const downloads =
+                document.getElementById("downloadsPage");
+
+
+            home.classList.add("hidden");
+
+            downloads.classList.remove("hidden");
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
-
-            const clickedButton = event.currentTarget;
-            const originalText = clickedButton.innerHTML;
-
-            clickedButton.innerHTML =
-                '<span class="download-icon">⏳</span> Preparing download...';
-
-            try {
-
-                const response = await fetch(
-                    `${GITHUB_API}/${encodeURIComponent(folderName)}`
-                );
-
-                if (!response.ok) {
-                    throw new Error(
-                        `GitHub returned ${response.status}`
-                    );
-                }
-
-                const files = await response.json();
-
-                if (!Array.isArray(files) || files.length === 0) {
-                    throw new Error("No files were found in this folder.");
-                }
-
-                /*
-                 * JSZip is loaded dynamically so the main page
-                 * remains lightweight.
-                 */
-                if (!window.JSZip) {
-
-                    await loadScript(
-                        "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
-                    );
-                }
-
-                const zip = new JSZip();
-
-                for (const file of files) {
-
-                    if (file.type !== "file") {
-                        continue;
-                    }
-
-                    const fileResponse = await fetch(file.download_url);
-
-                    if (!fileResponse.ok) {
-                        throw new Error(
-                            `Could not download ${file.name}`
-                        );
-                    }
-
-                    const blob = await fileResponse.blob();
-
-                    zip.file(file.name, blob);
-                }
-
-                const zipBlob = await zip.generateAsync({
-                    type: "blob"
-                });
-
-                const url = URL.createObjectURL(zipBlob);
-
-                const downloadLink = document.createElement("a");
-
-                downloadLink.href = url;
-                downloadLink.download = `${zipName}.zip`;
-
-                document.body.appendChild(downloadLink);
-
-                downloadLink.click();
-
-                downloadLink.remove();
-
-                URL.revokeObjectURL(url);
-
-                clickedButton.innerHTML = originalText;
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert(
-                    "There was a problem preparing the download.\n\n" +
-                    error.message
-                );
-
-                clickedButton.innerHTML = originalText;
-
-            } finally {
-
-                buttons.forEach(button => {
-                    button.disabled = false;
-                });
-            }
         }
 
 
         /*
-         * Dynamically load JSZip.
+         * =====================================================
+         * DOWNLOADS -> HOME
+         * =====================================================
          */
-        function loadScript(src) {
 
-            return new Promise((resolve, reject) => {
+        function showHome() {
 
-                const script = document.createElement("script");
+            const home =
+                document.getElementById("homePage");
 
-                script.src = src;
+            const downloads =
+                document.getElementById("downloadsPage");
 
-                script.onload = resolve;
 
-                script.onerror = () =>
-                    reject(
-                        new Error("Could not load the ZIP library.")
-                    );
+            downloads.classList.add("hidden");
 
-                document.head.appendChild(script);
+            home.classList.remove("hidden");
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
         }
+
+
+        /*
+         * =====================================================
+         * NOTHING BUTTON
+         * =====================================================
+         */
+
+        function doNothing() {
+
+            // This button intentionally does nothing.
+
+        }
+
+
+        /*
+         * =====================================================
+         * SHOW / HIDE EXTRA DOWNLOADS
+         * =====================================================
+         */
+
+        function toggleExtras() {
+
+            const extraDownloads =
+                document.getElementById("extraDownloads");
+
+            const extraButton =
+                document.getElementById("extraButton");
+
+
+            const isHidden =
+                extraDownloads.classList.contains("hidden");
+
+
+            if (isHidden) {
+
+                extraDownloads.classList.remove("hidden");
+
+                extraButton.textContent =
+                    "Hide extra downloads";
+
+            } else {
+
+                extraDownloads.classList.add("hidden");
+
+                extraButton.textContent =
+                    "Want extra?";
+
+            }
+
+        }
+
+
+        /*
+         * =====================================================
+         * DOWNLOAD FILE
+         * =====================================================
+         *
+         * Downloads a specific HTML file from:
+         *
+         * https://raw.githubusercontent.com/
+         * sahurhub/joel/main/Resources/
+         *
+         */
+
+        function downloadFile(fileName) {
+
+            const fileUrl =
+                GITHUB_RAW_BASE +
+                encodeURIComponent(fileName)
+                    .replace(/%2F/g, "/");
+
+
+            /*
+             * Create a temporary download link.
+             */
+
+            const link =
+                document.createElement("a");
+
+
+            link.href =
+                fileUrl;
+
+
+            link.download =
+                fileName;
+
+
+            link.target =
+                "_blank";
+
+
+            document.body.appendChild(link);
+
+
+            link.click();
+
+
+            link.remove();
+
+        }
+
     </script>
 
 </body>

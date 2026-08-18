@@ -469,14 +469,9 @@
                 font-size: 29px;
             }
 
-            /*
-             * Buttons remain side-by-side.
-             */
-
             .button-container,
             .download-buttons {
                 grid-template-columns: repeat(2, 1fr);
-
                 gap: 10px;
             }
 
@@ -516,10 +511,6 @@
     </nav>
 
 
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main>
 
         <!-- =========================
@@ -540,8 +531,6 @@
 
             <div class="button-container">
 
-                <!-- WORKING BUTTON -->
-
                 <button
                     class="primary"
                     onclick="showDownloads()">
@@ -550,8 +539,6 @@
 
                 </button>
 
-
-                <!-- DOES NOTHING -->
 
                 <button
                     class="disabled"
@@ -595,7 +582,9 @@
 
                 <button
                     class="primary download-button"
-                    onclick="downloadFile('joelclient1.12.html')">
+                    onclick="downloadFile(
+                        'https://www.dropbox.com/scl/fi/o6uqguo2hoqdxrk0pt7ib/joelclient1.12.html?rlkey=q3vj93tlms7z64i6538dheb2r&st=qns0gvel&dl=1'
+                    )">
 
                     <span class="download-icon">
                         ↓
@@ -608,7 +597,9 @@
 
                 <button
                     class="download-button"
-                    onclick="downloadFile('joelclient1.14.html')">
+                    onclick="downloadFile(
+                        'https://www.dropbox.com/scl/fi/bew89mqwx46abjhadpi2g/joelclient1.14.html?rlkey=8uooxi0h1asojgtl563tserlq&st=ciwhg61n&dl=1'
+                    )">
 
                     <span class="download-icon">
                         ↓
@@ -650,7 +641,7 @@
 
                     <button
                         onclick="downloadFile(
-                            'Eaglercraft_1.21.11_WASM_Offline_Download(2).html'
+                            'https://www.dropbox.com/scl/fi/morx0uwtfdgqhnizmt88i/Eaglercraft_1.21.11_WASM_Offline_Download-2.html?rlkey=s89phk0q1aw92z6jy9wws7z2q&st=w6o69xv7&dl=1'
                         )">
 
                         <span class="download-icon">
@@ -666,7 +657,7 @@
 
                     <button
                         onclick="downloadFile(
-                            'Eaglercraft 1.16.5 WASM.html'
+                            'https://www.dropbox.com/scl/fi/1jq2384k353wvbgnekoyq/Eaglercraft-1.16.5-WASM.html?rlkey=e1mc4iltbxu61zkmj71flq3aa&st=emeawrga&dl=1'
                         )">
 
                         <span class="download-icon">
@@ -682,7 +673,7 @@
 
                     <button
                         onclick="downloadFile(
-                            'eaglercraft-1.17-wasm_gc.html'
+                            'https://www.dropbox.com/scl/fi/6bsoe4c06bzfa5269r50r/eaglercraft-1.17-wasm_gc.html?rlkey=mi0tyf0l3a5eymnv81jjlfdcq&st=73o30bmk&dl=1'
                         )">
 
                         <span class="download-icon">
@@ -699,7 +690,7 @@
 
 
             <!-- =========================
-                 BACK
+                 BACK BUTTON
             ========================= -->
 
             <button
@@ -715,10 +706,6 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
     <footer>
         Joel Interweb
     </footer>
@@ -728,23 +715,7 @@
 
         /*
          * =====================================================
-         * GITHUB SETTINGS
-         * =====================================================
-         *
-         * All downloadable files are directly inside:
-         *
-         * Resources/
-         *
-         * in the sahurhub/joel repository.
-         */
-
-        const GITHUB_RAW_BASE =
-            "https://raw.githubusercontent.com/sahurhub/joel/main/Resources/";
-
-
-        /*
-         * =====================================================
-         * HOME -> DOWNLOADS
+         * PAGE NAVIGATION
          * =====================================================
          */
 
@@ -768,12 +739,6 @@
             });
         }
 
-
-        /*
-         * =====================================================
-         * DOWNLOADS -> HOME
-         * =====================================================
-         */
 
         function showHome() {
 
@@ -803,15 +768,13 @@
          */
 
         function doNothing() {
-
-            // This button intentionally does nothing.
-
+            // Intentionally does nothing.
         }
 
 
         /*
          * =====================================================
-         * SHOW / HIDE EXTRA DOWNLOADS
+         * EXTRA DOWNLOADS
          * =====================================================
          */
 
@@ -843,58 +806,37 @@
                     "Want extra?";
 
             }
-
         }
 
 
         /*
          * =====================================================
-         * DOWNLOAD FILE
+         * DOWNLOAD
          * =====================================================
          *
-         * Downloads a specific HTML file from:
+         * Dropbox handles the actual file hosting.
          *
-         * https://raw.githubusercontent.com/
-         * sahurhub/joel/main/Resources/
-         *
+         * The links use dl=1 so Dropbox attempts to download
+         * the file instead of showing its preview page.
          */
 
-        function downloadFile(fileName) {
-
-            const fileUrl =
-                GITHUB_RAW_BASE +
-                encodeURIComponent(fileName)
-                    .replace(/%2F/g, "/");
-
-
-            /*
-             * Create a temporary download link.
-             */
+        function downloadFile(url) {
 
             const link =
                 document.createElement("a");
 
 
-            link.href =
-                fileUrl;
+            link.href = url;
 
+            link.target = "_blank";
 
-            link.download =
-                fileName;
-
-
-            link.target =
-                "_blank";
-
+            link.rel = "noopener noreferrer";
 
             document.body.appendChild(link);
 
-
             link.click();
 
-
             link.remove();
-
         }
 
     </script>
